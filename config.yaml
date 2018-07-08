@@ -25,8 +25,8 @@ submodels:
       model: mom
       exe: fms_ACCESS-OM_839d460e.x
       input:  
-              - /g/data1/ua8/MOM/initial_conditions/WOA/10_GFDL50
-              - /g/data1/ua8/MOM/grids/10/topog/GFDL50
+              - /g/data1/ua8/MOM/initial_conditions/WOA/10
+              - /g/data1/ua8/MOM/grids/10/topog/GFDL50_COSIMA
               - /g/data/ua8/MOM/salinity_restoring/10
               - mom_1deg
       ncpus: 216
