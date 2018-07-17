@@ -6,35 +6,35 @@ jobname: r8_g50
 ncpus: 252
 mem: 500GB
 
-shortpath: /short/v45
+shortpath: /short/x77
 
 runspersub: 15
 restart_freq: 1
 
 # Model configuration
 model: access-om2
-input: common_1deg_jra55
+input:  /short/v45/kxs157/access-om2/input/common_1deg_jra55
 submodels:
     - name: atmosphere
       model: yatm
-      exe: yatm_7c3a8c04.exe
-      input: yatm_1deg
+      exe:  /short/v45/kxs157/access-om2/yatm_7c3a8c04.exe
+      input:  /short/v45/kxs157/access-om2/input/yatm_1deg
       ncpus: 1
 
     - name: ocean
       model: mom
-      exe: fms_ACCESS-OM_839d460e.x
+      exe:  /short/v45/kxs157/access-om2/fms_ACCESS-OM_839d460e.x
       input:  
               - /g/data1/ua8/MOM/initial_conditions/WOA/10
               - /g/data1/ua8/MOM/grids/10/topog/GFDL50_COSIMA
               - /g/data/ua8/MOM/salinity_restoring/10
-              - mom_1deg
+              -  /short/v45/kxs157/access-om2/input/mom_1deg
       ncpus: 216
 
     - name: ice
       model: cice5
-      exe: cice_auscom_360x300_24p_df982d28.exe
-      input: cice_1deg
+      exe:  /short/v45/kxs157/access-om2/cice_auscom_360x300_24p_df982d28.exe
+      input: /short/v45/kxs157/access-om2/input/cice_1deg
       ncpus: 24
 
 platform:
@@ -43,6 +43,7 @@ platform:
 # Misc
 runlog: True
 stacksize: unlimited
+collate: False
 collate_walltime: 1:00:00
 collate_queue: express
 collate_ncpus: 1
@@ -50,4 +51,3 @@ collate_mem: 8GB
 collate_flags: -n4 -z -m -r
 mpirun: --mca orte_base_help_aggregate 0
 qsub_flags: -lother=hyperthread -W umask=027
-# postscript: sync_output_to_gdata.sh
