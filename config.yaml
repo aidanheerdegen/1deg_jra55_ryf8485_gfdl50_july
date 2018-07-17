@@ -1,7 +1,7 @@
 # PBS configuration
-queue: normalbw
+queue: expressbw
 project: x77
-walltime: 44:00:00
+walltime: 1:00:00
 jobname: r8_g50
 ncpus: 252
 mem: 500GB
@@ -17,13 +17,13 @@ input:  /short/v45/kxs157/access-om2/input/common_1deg_jra55
 submodels:
     - name: atmosphere
       model: yatm
-      exe:  /short/v45/kxs157/access-om2/yatm_7c3a8c04.exe
+      exe:  /short/v45/kxs157/access-om2/bin/yatm_7c3a8c04.exe
       input:  /short/v45/kxs157/access-om2/input/yatm_1deg
       ncpus: 1
 
     - name: ocean
       model: mom
-      exe:  /short/v45/kxs157/access-om2/fms_ACCESS-OM_839d460e.x
+      exe:  /short/v45/kxs157/access-om2/bin/fms_ACCESS-OM_839d460e.x
       input:  
               - /g/data1/ua8/MOM/initial_conditions/WOA/10
               - /g/data1/ua8/MOM/grids/10/topog/GFDL50_COSIMA
@@ -33,7 +33,7 @@ submodels:
 
     - name: ice
       model: cice5
-      exe:  /short/v45/kxs157/access-om2/cice_auscom_360x300_24p_df982d28.exe
+      exe:  /short/v45/kxs157/access-om2/bin/cice_auscom_360x300_24p_df982d28.exe
       input: /short/v45/kxs157/access-om2/input/cice_1deg
       ncpus: 24
 
