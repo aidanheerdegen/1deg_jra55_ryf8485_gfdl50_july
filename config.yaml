@@ -6,7 +6,7 @@ jobname: r8_g50
 ncpus: 252
 mem: 500GB
 
-shortpath: /short/x77
+# shortpath: /short/x77
 
 runspersub: 15
 restart_freq: 1
